@@ -1,5 +1,6 @@
 body{
   font-family: 'Helvetica', sans-serif;
+  background-color: wheat;
   margin: 0;
 }
 
@@ -15,6 +16,7 @@ a:hover{
 
 #sidebar{
   display: inline-block;
+  position: static;
     min-width: 200px;
     max-width: 200px;
     margin: 10px 10px auto 10px;
@@ -33,16 +35,25 @@ header{
 header a{
   color: #fff;
 }
+.Modal{
+  background-color: lightyellow;
+}
 
-.Window{
-  align-self: center;
-  position: fixed;
-  background-color: orange;
-
+.content{
+  display: flex;
 }
 
 #gameBoard{
-
+padding: 20px;
+background-color: blue;
+position: static;
+align-items: center;
+display: flex;
+max-height: 500px;
+max-width: 500px;
+left: 20px;
+top: 300px;
+border: 10px solid black;
 }
 /*
 ticTac_board{
@@ -57,22 +68,40 @@ ticTac_board{
 */
 
 #ticTac_board{
-  background-color: blue;
+  padding: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 
   min-width: 500px;
-  max-height: 500px;
+  min-height: 500px;
+
 }
 
-.box{
-  min-width: 25vw;
+.box-empty{
+  border-color: black;
+  border: 2px;
+  min-width: 150px;
+  min-height: 150px;
   display: inline-block;
-  flex: 1 0 33%;
+  flex: 1 0 30%;
+  margin: 5px;
+  vertical-align: top;
+  align-items: center;
 }
 
+.box-empty img{
+  max-width: 100px;
+  max-height: 100px;
+}
 
+.box-x{
+  background-color: red;
+}
+
+.box-o{
+  background-color: grey;
+}
 
 /*
 navbar item, to worrry about JS implementation
