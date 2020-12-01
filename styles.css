@@ -44,8 +44,19 @@ header a{
 #gameBoard{
 
 }
-
+/*
 ticTac_board{
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  min-width: 500px;
+  max-height: 500px;
+}
+*/
+
+#ticTac_board{
   background-color: blue;
   display: flex;
   flex-direction: row;
@@ -58,7 +69,7 @@ ticTac_board{
 .box{
   min-width: 25vw;
   display: inline-block;
-  flex: 0 0 33%;
+  flex: 1 0 33%;
 }
 
 
