@@ -51,15 +51,14 @@ ticTac_board{
   flex-direction: row;
   flex-wrap: wrap;
 
-  min-width: 75vw;
-  max-height: 75vh;
+  min-width: 500px;
+  max-height: 500px;
 }
 
 .box{
-  background-color: orange;
   min-width: 25vw;
   display: inline-block;
-  flex-grow: 3;
+  flex: 0 0 33%;
 }
 
 
