@@ -23,3 +23,14 @@ header{
 header a{
   color: #fff;
 }
+
+/*
+navbar item, to worrry about JS implementation
+
+tic-tac-toe_box_<number>
+event OnClick -> listen for button click for boxes (tic-tac-toe)
+-- is it a valid move?
+
+IDs of ticTac boxes and the value there
+
+*/
