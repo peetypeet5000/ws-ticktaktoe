@@ -46,6 +46,7 @@ header a{
 }
 
 ticTac_board{
+  background-color: blue;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -55,6 +56,7 @@ ticTac_board{
 }
 
 .box{
+  background-color: orange;
   min-width: 25vw;
   display: inline-block;
   flex-grow: 3;
