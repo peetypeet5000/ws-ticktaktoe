@@ -6,23 +6,95 @@
   </head>
   <body>
 
-    <div class="Window">
-      <div class="Game Board">
-        <div class="ticTac_board">
-          <button type="button" name="ticTac-1", value = 0, img=" "></button>
-          <button type="button" name="ticTac-2", value = 0, img=" "></button>
-          <button type="button" name="ticTac-3", value = 0, img=" "></button>
-          <button type="button" name="ticTac-4", value = 0, img=" "></button>
-          <button type="button" name="ticTac-5", value = 0, img=" "></button>
-          <button type="button" name="ticTac-6", value = 0, img=" "></button>
-          <button type="button" name="ticTac-7", value = 0, img=" "></button>
-          <button type="button" name="ticTac-8", value = 0, img=" "></button>
-          <button type="button" name="ticTac-9", value = 0, img=" "></button>
-        </div>
+    <aside id="sidebar">
+
+              <h2>Nav bar</h2>
+
+              <div id="navigation-container">
+                <label for="nav-title-text" class="navigation-label">Opttional navigation</label>
+                <ul id = "nav links">
+                  <li class="list-item"><a href = "www.google.com">This is a site</a></li>
+                  <li class="list-item"><a href = "www.google.com">This is also a site</a></li>
+                  <li class="list-item"><a href = "www.google.com">This is also also site</a></li>
+                  <li class="list-item"><a href = "www.google.com">You get the idea</a></li>
+                </ul>
+              </div>
+
+    </aside>
+
+
+    <div class="Modal">
+      <div class="ModalMessageBox"><span id=ModalMessage>Please Wait ...</span>
+
       </div>
+
     </div>
 
+      <div id="gameBoard">
+        <section id="ticTac_board">
+              <div class="box" data-value="0">
+                      <div class="box-image-container">
+                        <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                      </div>
+                      <button type="button" name="tictac-1" data-value=0></button>
+              </div>
+              <div class="box" data-value="0">
+                      <div class="box-image-container">
+                        <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                      </div>
+                      <button type="button" name="tictac-2" data-value=0></button>
+              </div>
+              <div class="box" data-value="0">
+                      <div class="box-image-container">
+                        <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                      </div>
+                      <button type="button" name="tictac-3" data-value=0></button>
+              </div>
+              <div class="box" data-value="0">
+                      <div class="box-image-container">
+                        <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                      </div>
+                      <button type="button" name="tictac-4" data-value=0></button>
+              </div>
+              <div class="box" data-value="0">
+                      <div class="box-image-container">
+                        <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                      </div>
+                      <button type="button" name="tictac-5" data-value=0></button>
+              </div>
+              <div class="box" data-value="0">
+                      <div class="box-image-container">
+                        <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                      </div>
+                      <button type="button" name="tictac-6" data-value=0></button>
+              </div>
+              <div class="box" data-value="0">
+                      <div class="box-image-container">
+                        <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                      </div>
+                      <button type="button" name="tictac-7" data-value=0></button>
+              </div>
+              <div class="box" data-value="0">
+                      <div class="box-image-container">
+                        <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                      </div>
+                      <button type="button" name="tictac-8" data-value=0></button>
+              </div>
+              <div class="box" data-value="0">
+                                    <div class="box-image-container">
+                                      <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+                                    </div>
+                                    <button type="button" name="tictac-9" data-value=0></button>
+              </div>
+
+        </section>
+      </div>
+
     <div class="footerNav">
+
+    </div>
+
+    <div class="playerIcon">
 
     </div>
 

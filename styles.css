@@ -13,6 +13,16 @@ a:hover{
   color: purple;
 }
 
+#sidebar{
+  display: inline-block;
+    min-width: 200px;
+    max-width: 200px;
+    margin: 10px 10px auto 10px;
+    padding: 20px;
+    border-radius: 3px;
+    background-color: #efefef;
+}
+
 header{
   background-color: white;
   display: flex;
@@ -23,6 +33,34 @@ header{
 header a{
   color: #fff;
 }
+
+.Window{
+  align-self: center;
+  position: fixed;
+  background-color: orange;
+
+}
+
+#gameBoard{
+
+}
+
+ticTac_board{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  min-width: 75vw;
+  max-height: 75vh;
+}
+
+.box{
+  min-width: 25vw;
+  display: inline-block;
+  flex-grow: 3;
+}
+
+
 
 /*
 navbar item, to worrry about JS implementation
