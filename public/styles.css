@@ -10,7 +10,7 @@ a {
 }
 
 a:hover{
-  text-decoration: line-through;
+  text-decoration: underline;
   color: purple;
 }
 
@@ -102,6 +102,14 @@ ticTac_board{
 .box-o{
   background-color: grey;
 }
+
+.error-page{
+  max-width: 500px;
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+}
+
 
 /*
 navbar item, to worrry about JS implementation

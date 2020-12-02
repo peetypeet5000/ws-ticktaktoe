@@ -1,12 +1,3 @@
-/*
- * Write your routing code in this file.  Make sure to add your name and
- * @oregonstate.edu email address below.
- *
- * Name: Peter LaMontagne
- * Email: lamontap@oregonstate.edu
- */
-
-
 //import modules and ata
 var express = require('express');
 var exphbs = require('express-handlebars');
@@ -21,8 +12,6 @@ app.set('view engine', 'handlebars');
 
 
 app.use(express.static('public'));
-
-
 
 
 //serve the main page
