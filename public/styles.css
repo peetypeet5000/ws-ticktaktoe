@@ -25,16 +25,38 @@ a:hover{
     background-color: #efefef;
 }
 
-header{
-  background-color: white;
+header {
+  background-color: #efefef;
   display: flex;
   align-items: center;
   position: relative;
+  max-height: 125px;
+  margin-bottom: 20px;
+  border-bottom: 5px solid black;
 }
 
-header a{
-  color: #fff;
+header a {
+  color: black;
 }
+
+.site-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 80px;
+  font-weight: 100;
+  margin: 0 0 0 20px;
+  padding-top: 30px;
+}
+
+.site-title a:hover {
+  text-decoration: none;
+}
+
+
+.header-image-container {
+  padding: 10px;
+}
+
+
 .Modal{
   background-color: lightyellow;
 }
