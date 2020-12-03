@@ -100,6 +100,7 @@ ticTac_board{
 
 }
 
+
 .box-empty{
   border-color: black;
   border: 2px;
@@ -111,6 +112,15 @@ ticTac_board{
   vertical-align: top;
   align-items: center;
 }
+
+.box-tick{
+  background-color: red;
+}
+
+.box-tack{
+  background-color: yellow;
+}
+
 
 .box-empty img{
   max-width: 100px;
