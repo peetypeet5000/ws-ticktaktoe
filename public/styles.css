@@ -1,0 +1,155 @@
+body{
+  font-family: 'Helvetica', sans-serif;
+  background-color: wheat;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover{
+  text-decoration: underline;
+  color: purple;
+}
+
+#sidebar{
+  display: inline-block;
+  position: static;
+    min-width: 200px;
+    max-width: 200px;
+    margin: 10px 10px auto 10px;
+    padding: 20px;
+    border-radius: 3px;
+    background-color: #efefef;
+}
+
+header {
+  background-color: #efefef;
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-height: 125px;
+  margin-bottom: 20px;
+  border-bottom: 5px solid black;
+}
+
+header a {
+  color: black;
+}
+
+.site-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 80px;
+  font-weight: 100;
+  margin: 0 0 0 20px;
+  padding-top: 30px;
+}
+
+.site-title a:hover {
+  text-decoration: none;
+}
+
+
+.header-image-container {
+  padding: 10px;
+}
+
+
+.Modal{
+  background-color: lightyellow;
+}
+
+.content{
+  display: flex;
+}
+
+#gameBoard{
+padding: 20px;
+background-color: blue;
+position: static;
+align-items: center;
+display: flex;
+max-height: 500px;
+max-width: 500px;
+left: 20px;
+top: 300px;
+border: 10px solid black;
+}
+/*
+ticTac_board{
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  min-width: 500px;
+  max-height: 500px;
+}
+*/
+
+#ticTac_board{
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  min-width: 500px;
+  min-height: 500px;
+
+}
+
+
+.box-empty{
+  border-color: black;
+  border: 2px;
+  min-width: 150px;
+  min-height: 150px;
+  display: inline-block;
+  flex: 1 0 30%;
+  margin: 5px;
+  vertical-align: top;
+  align-items: center;
+}
+
+.box-tick{
+  background-color: red;
+}
+
+.box-tack{
+  background-color: yellow;
+}
+
+
+.box-empty img{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.box-x{
+  background-color: red;
+}
+
+.box-o{
+  background-color: grey;
+}
+
+.error-page{
+  max-width: 500px;
+  margin: auto;
+  margin-top: 100px;
+  text-align: center;
+}
+
+
+/*
+navbar item, to worrry about JS implementation
+
+tic-tac-toe_box_<number>
+event OnClick -> listen for button click for boxes (tic-tac-toe)
+-- is it a valid move?
+
+IDs of ticTac boxes and the value there
+
+*/
