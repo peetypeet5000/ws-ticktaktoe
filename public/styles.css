@@ -111,28 +111,33 @@ ticTac_board{
   margin: 5px;
   vertical-align: top;
   align-items: center;
+  content: blue;
 }
 
 .box-tick{
-  background-color: red;
+
 }
 
 .box-tack{
-  background-color: yellow;
+
 }
 
 
 .box-empty img{
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .box-x{
-  background-color: red;
+  content: url("https://www.publicdomainpictures.net/pictures/260000/velka/x-marks-the-spot-1527895054EsE.jpg");
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .box-o{
-  background-color: grey;
+  content: url("https://www.publicdomainpictures.net/pictures/50000/velka/letter-o-outlined.jpg");
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .error-page{
