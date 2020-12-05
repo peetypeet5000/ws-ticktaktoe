@@ -111,33 +111,42 @@ ticTac_board{
   margin: 5px;
   vertical-align: top;
   align-items: center;
-  content: blue;
+}
+.box-empty:hover{
+  background-color: white;
+  transition: 0.5s;
 }
 
 .box-tick{
-
+  content: url("https://www.publicdomainpictures.net/pictures/260000/velka/x-marks-the-spot-1527895054EsE.jpg");
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .box-tack{
-
+  content: url("https://www.publicdomainpictures.net/pictures/50000/velka/letter-o-outlined.jpg");
+  max-width: 100px;
+  max-height: 100px;
 }
 
 
 .box-empty img{
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.box-image-container{
+  content: none;
+  width: 100px;
+  height: 100px;
 }
 
 .box-x{
-  content: url("https://www.publicdomainpictures.net/pictures/260000/velka/x-marks-the-spot-1527895054EsE.jpg");
-  max-width: 200px;
-  max-height: 200px;
+
 }
 
 .box-o{
-  content: url("https://www.publicdomainpictures.net/pictures/50000/velka/letter-o-outlined.jpg");
-  max-width: 200px;
-  max-height: 200px;
+
 }
 
 .error-page{
