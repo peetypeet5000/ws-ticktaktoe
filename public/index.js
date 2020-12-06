@@ -3,6 +3,9 @@ function buttonClicked(event) {
     //will get the value of the button, 0-8
     var buttonSelected = event.target.dataset.value;
 
+    console.log(buttonSelected);
+    console.log(gameState.board);
+
     //if the square is not empty
     if(gameState.board[buttonSelected] != 0) {
         alert("Invalid Move!");
