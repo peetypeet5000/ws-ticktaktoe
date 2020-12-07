@@ -13,14 +13,15 @@ const webSocketServer = new ws.Server({ noServer: true });
 //setup active gamestate
 var gameState = {
   type: "gameState",
-  activePiece: 1, //1 or 2
-  currentPlayer: 1, //starts at 1
+  activePiece: 1, //1 or 2 -- determines tick or tack
+  currentPlayer: 1, //starts at 1 -- used for player queue
   board: [
       0, 0, 0, 0, 0, 0, 0, 0, 0
   ]
 }
 
 
+//will hold the soocket objects for connected websocket clients
 var currentPlayers = [];
 
 //setup templating engine
@@ -59,7 +60,7 @@ webSocketServer.on('connection', socket => {
   //when a new user connects, send them gamestate
   socket.send(JSON.stringify(gameState));
 
-  //update list of players, assign player their #
+  //update list of players, assign new player their #
   updatePlayerList(socket);
 
 
@@ -87,14 +88,16 @@ webSocketServer.on('connection', socket => {
 
 //adds all new clients to array of clients, sends client their spot in array
 function updatePlayerList(socket) {
-  currentPlayers.push(socket);
+  currentPlayers.push(socket); //add to array
   console.log("== New Player Joined. Current Players: ", currentPlayers.length);
 
+  //the JSON object to send to new client
   var message = JSON.stringify({
     type: "assignPlayer",
     playerInt: currentPlayers.length,
   });
 
+  //send to client
   socket.send(message);
 
 }
@@ -103,15 +106,22 @@ function updatePlayerList(socket) {
 
 //sends updated gamestate to ALL clients
 function updateClients() {
+
+  //loops thru all connected clients
   webSocketServer.clients.forEach(function each(client) {
     if (client.readyState === ws.OPEN) {
+      //send JSON of gameState object
       client.send(JSON.stringify(gameState));
     }
   });
 }
 
 
-//DO ALL GAME LOGIC HERE
+/*****************************
+ * This function does the actual game logic. This
+ * includes advancing the player in the queue, advancing
+ * the piece to be played, and checking for wins
+ ******************************/
 function updateGameState() {
 
   //advance gamestate to next player in queue
@@ -146,16 +156,18 @@ function updateGameState() {
 //makes sure current player has not disconnected
 function checkValidPlayer() {
 
-  //console.log("cur play: ", gameState.currentPlayer, "ar: ", currentPlayers);
+  //checks if the websocket for the current player is still OPEN
   if(currentPlayers[gameState.currentPlayer - 1].readyState !== ws.OPEN) {
-    //advance to next player
+    //if not, advance to next player
     gameState.currentPlayer++;
+
+    //check if next player out of range of array
     if(gameState.currentPlayer > currentPlayers.length) {
       gameState.currentPlayer = 1;
     }
 
+    //print to console, then run check again
     console.log("== Current Player Disconnected. Advancing to next player: ", gameState.currentPlayer);
-    //check again
     checkValidPlayer();
   }
 
