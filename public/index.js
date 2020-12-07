@@ -3,9 +3,6 @@ function buttonClicked(event) {
     //will get the value of the button, 0-8
     var buttonSelected = event.target.dataset.value;
 
-    console.log(buttonSelected);
-    console.log(gameState.board);
-
     //if the square is not empty
     if(gameState.board[buttonSelected] != 0) {
         alert("Invalid Move!");
@@ -39,7 +36,7 @@ function updateBoard() {
     //its 0-18 because that query selection returns the box & image divs
     for(var i = 0; i < 18; i = i + 2) {
         var currentBox = allBoxes[i];
-   
+
         //if 1, tick, if 2, tack
         if(gameState.board[i / 2] == 1){
             currentBox.classList.add("box-tick");
@@ -89,4 +86,3 @@ var gameState = {
 /******* Event Listeners **********/
 var buttonsContainer = document.getElementById("ticTac_board");
 buttonsContainer.addEventListener('click', buttonClicked, false);
-
