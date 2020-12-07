@@ -112,13 +112,21 @@ ticTac_board{
   vertical-align: top;
   align-items: center;
 }
+.box-empty:hover{
+  background-color: white;
+  transition: 0.5s;
+}
 
 .box-tick{
-  background-color: red;
+  content: url("https://www.publicdomainpictures.net/pictures/260000/velka/x-marks-the-spot-1527895054EsE.jpg");
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .box-tack{
-  background-color: yellow;
+  content: url("https://www.publicdomainpictures.net/pictures/50000/velka/letter-o-outlined.jpg");
+  max-width: 100px;
+  max-height: 100px;
 }
 
 
@@ -127,12 +135,18 @@ ticTac_board{
   max-height: 100px;
 }
 
+.box-image-container{
+  content: none;
+  width: 100px;
+  height: 100px;
+}
+
 .box-x{
-  background-color: red;
+
 }
 
 .box-o{
-  background-color: grey;
+
 }
 
 .error-page{
