@@ -6,6 +6,8 @@ function buttonClicked(event) {
     //if the square is not empty
     if(gameState.board[buttonSelected] != 0) {
         alert("Invalid Move!");
+        console.log("invalid move. Current gameState", gameState);
+        return;
     } else {
         //set to players int, so 1 for player 1 and 2 for player 2
         gameState.board[buttonSelected] = gameState.activePlayer;
