@@ -3,11 +3,12 @@ function buttonClicked(event) {
 	//will get the value of the button, 0-8
 	var buttonSelected = event.target.dataset.value;
 
-
 	//if the square is not empty
 	if(gameState.board[buttonSelected] != 0) {
+		//if not a valid square to click, deny
 		alert("Invalid Move!");
 	} else if(player != gameState.currentPlayer) {
+		//if it's not this client's turn, deny
 		alert("It's not your turn!");
 	} else {
 		//set to players int, so 1 for player 1 and 2 for player 2
@@ -15,8 +16,6 @@ function buttonClicked(event) {
 		//tell server we made a move
 		sendRequest();
 	}
-
-
 }
 
 
@@ -62,11 +61,20 @@ function sendRequest() {
 
 	//actually send request
 	webSocket.send(gameStateString);
-
-
-
 }
 
+
+
+//toggles the hidden class on the modal div
+function showModal(){
+	var modal = document.getElementById("Modal");
+
+	if(modal.classList[0] == "hidden") {
+		modal.classList.remove("hidden");
+	} else {
+		modal.classList.add("hidden");
+	}
+}
 
 
 
@@ -81,8 +89,7 @@ var gameState = {
 	]
 }
 
-var player;
-
+var player; //used to hold int signifying place in queue
 
 /******* Event Listeners **********/
 var buttonsContainer = document.getElementById("ticTac_board");
@@ -90,42 +97,39 @@ buttonsContainer.addEventListener('click', buttonClicked, false);
 
 
 
-function showModal(){
-  var modal = document.getElementById("Modal");
-  modal.classList.remove("hidden");
-}
-
-
-
-/******* Start WebSocket *********/
+/******* Websocket Stuff *********/
 var webSocket = new WebSocket('ws://localhost:3000');
 
 //on webSocket Open
 webSocket.onopen = function(event) {
 	console.log("== webSocket is open now.");
-  };
+};
 
 //if Websocket error, print it
 webSocket.onerror = function(event) {
 	console.log("== webSocket Error:" + event.data);
-  };
+};
 
 
-//when a websocket message received, update gamestate
+//Handles the receviving of a message from the server
+//Assumes all messages are JSON objects with known type keys
 webSocket.onmessage = function(event) {
+
+	//parse string into object, print to console
 	var message = JSON.parse(event.data);
 	console.log("== New Server Message Received: ", message);
 
+	//depending on type of message, handle differently
 	switch(message.type) {
 		case "gameState":
+			//received new gamestate
 			gameState = message;
 			updateBoard();
-			
 			break;
 		case "assignPlayer":
+			//server assinging this client place in queue
 			player = message.playerInt;
 			console.log("== Player Order Assigned. I am: ", player);
 			break;
 	}
-	
 }
