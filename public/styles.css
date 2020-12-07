@@ -78,8 +78,11 @@ header img{
 }
 
 
-.Modal{
+#Modal{
   background-color: lightyellow;
+}
+
+.hidden{
   display: none;
 }
 

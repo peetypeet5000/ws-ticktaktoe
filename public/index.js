@@ -88,3 +88,9 @@ var gameState = {
 /******* Event Listeners **********/
 var buttonsContainer = document.getElementById("ticTac_board");
 buttonsContainer.addEventListener('click', buttonClicked, false);
+
+
+function showModal(){
+  var modal = document.getElementById("Modal");
+  modal.classList.remove("hidden");
+}
