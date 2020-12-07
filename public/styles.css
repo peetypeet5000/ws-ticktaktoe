@@ -165,28 +165,29 @@ grid-area: gameWindow;
   text-align: center;
 }
 
-.Modal{
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
+#Modal{
   opacity: 0.8;
-  position: absolute;
+  position: fixed;
   shadow: black;
   z-index: 1000;
+  width: 560px;
+  height: 560px;
+  left: 31%;
+  top: 19%;
+  background-color: darkgrey;
+  border: solid 5px black;
 }
 
 .ModalMessageBox{
-  left: 20;
-  top: 200;
-  width: 200px;
-  height: 200px;
-  z-index: 1001;
+  left: 50%;
+  top: 90%;
+  right: 50%;
+  margin-bottom: 10px;
+  padding: 100px;
+  border: dashed 2px black;
 }
 
 #ModalMessage{
-  background-color: white;
-  opacity: 1;
 }
 
 /*
