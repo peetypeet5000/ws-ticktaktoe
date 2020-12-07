@@ -94,6 +94,7 @@ header img{
     "sidebar gameWindow";
   grid-column-gap: 50px;
   padding-left: 10px;
+  z-index: -10;
 }
 
 #gameBoard{
@@ -164,6 +165,29 @@ grid-area: gameWindow;
   text-align: center;
 }
 
+.Modal{
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.8;
+  position: absolute;
+  shadow: black;
+  z-index: 1000;
+}
+
+.ModalMessageBox{
+  left: 20;
+  top: 200;
+  width: 200px;
+  height: 200px;
+  z-index: 1001;
+}
+
+#ModalMessage{
+  background-color: white;
+  opacity: 1;
+}
 
 /*
 navbar item, to worrry about JS implementation
