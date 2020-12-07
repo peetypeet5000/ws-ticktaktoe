@@ -1,13 +1,17 @@
 //import modules and ata
 var express = require('express');
 var exphbs = require('express-handlebars');
+var ws = require('ws');
 
 //setup express
 var app = express();
-var port = process.env.PORT || 3000;
+var port = 3000;
+
+//setup websocket server
+const webSocketServer = new ws.Server({ noServer: true });
 
 //setup active gamestate
-var gameStates = {
+var gameState = {
   activePlayer: 1,
   board: [
       0, 0, 0, 0, 0, 0, 0, 0, 0
@@ -43,15 +47,45 @@ app.get('*', function (req, res) {
 
 
 
-app.post('/move', function(req, res, next) {
-  console.log("== Current Gamestate: ", req.body, "\n");
 
-  if(req.body && req.body.activePlayer && req.body.board) {
-    res.status(200).send("Move recorded");
-  }
-})
+//handle websocket request
+webSocketServer.on('connection', socket => {
+
+  //when a new user connects, send them gamestate
+  socket.send(JSON.stringify(gameState));
+
+  socket.on('message', message => {
+    //this is where websocket requests are actually handled
+    console.log("== Client Message Recived: ", message)
+    var objRecevied = JSON.parse(message);
+    gameState = objRecevied; //overwright previous gamestate
+
+    updateClients();
+  })
+});
 
 
-app.listen(port, function () {
+//sends updated gamestate to ALL clients
+function updateClients() {
+  webSocketServer.clients.forEach(function each(client) {
+    if (client.readyState === ws.OPEN) {
+      client.send(JSON.stringify(gameState));
+    }
+  });
+}
+
+
+
+//start the server
+const server = app.listen(port, function () {
   console.log("== Server is listening on port", port);
 });
+
+
+//upgrade the server (allows both http & ws on same server)
+server.on('upgrade', (request, socket, head) => {
+  webSocketServer.handleUpgrade(request, socket, head, socket => {
+    webSocketServer.emit('connection', socket, request);
+  });
+});
+
