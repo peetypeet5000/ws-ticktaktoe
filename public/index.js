@@ -3,6 +3,7 @@ function buttonClicked(event) {
 	//will get the value of the button, 0-8
 	var buttonSelected = event.target.dataset.value;
 
+
 	//if the square is not empty
 	if(gameState.board[buttonSelected] != 0) {
 		alert("Invalid Move!");
@@ -10,6 +11,7 @@ function buttonClicked(event) {
 		//set to players int, so 1 for player 1 and 2 for player 2
 		gameState.board[buttonSelected] = gameState.activePlayer;
 	}
+
 
 	//advance to next turn
 	if(gameState.activePlayer == 2) {
@@ -79,6 +81,11 @@ var buttonsContainer = document.getElementById("ticTac_board");
 buttonsContainer.addEventListener('click', buttonClicked, false);
 
 
+
+function showModal(){
+  var modal = document.getElementById("Modal");
+  modal.classList.remove("hidden");
+}
 
 /******* Start WebSocket *********/
 var webSocket = new WebSocket('ws://localhost:3000');

@@ -1,46 +1,67 @@
 body{
   font-family: 'Helvetica', sans-serif;
-  background-color: wheat;
+  background-image: url("https://wallpapercave.com/wp/wp4941976.jpg");
+  background-image: linear-gradient();
   margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: blue;
-}
-
-a:hover{
-  text-decoration: underline;
-  color: purple;
 }
 
 #sidebar{
   display: inline-block;
   position: static;
-    min-width: 200px;
-    max-width: 200px;
-    margin: 10px 10px auto 10px;
-    padding: 20px;
-    border-radius: 3px;
-    background-color: #efefef;
+  max-width: 200px;
+  min-width: 150px;
+  margin: 10px 10px auto 10px;
+  padding: 20px;
+  border-radius: 10px;
+  background-image: linear-gradient(135deg, #f0f0f0, #949494);
+  height: 500px;
+  overflow: hidden;
+  grid-area: sidebar;
+}
+
+#sidebar ul{
+  list-style: none;
+  list-style-type: none;
+  padding: 0px;
+}
+
+#sidebar a{
+    text-decoration: none;
+    color: white;
+}
+
+#sidebar a:hover{
+  color: #ededed;
 }
 
 header {
-  background-color: #efefef;
+  background-image: linear-gradient(135deg, #d1d1d1, #595959);
   display: flex;
   align-items: center;
   position: relative;
-  max-height: 125px;
+  height:auto;
   margin-bottom: 20px;
   border-bottom: 5px solid black;
+  text-overflow: hidden;
+  white-space: nowrap;
+  padding-left: 10px;
 }
 
 header a {
-  color: black;
+  text-decoration: none;
+  color: #ededed;
+}
+header a:hover{
+  color: White;
+}
+header img{
+  max-height: 125px;
+  filter:grayscale(100%);
+  border-radius: 3px;
 }
 
 .site-title {
-  font-family: "Roboto Slab", serif;
+  font-family: 'Special Elite', cursive;
   font-size: 80px;
   font-weight: 100;
   margin: 0 0 0 20px;
@@ -57,17 +78,27 @@ header a {
 }
 
 
-.Modal{
+#Modal{
   background-color: lightyellow;
 }
 
+.hidden{
+  display: none;
+}
+
 .content{
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "sidebar gameWindow";
+  grid-column-gap: 50px;
+  padding-left: 10px;
 }
 
 #gameBoard{
 padding: 20px;
-background-color: blue;
+background-image: url("https://i1.wp.com/mameara.com/wp-content/uploads/2010/07/Dark-Wood-Texture.jpg?resize=640%2C374");
 position: static;
 align-items: center;
 display: flex;
@@ -76,78 +107,55 @@ max-width: 500px;
 left: 20px;
 top: 300px;
 border: 10px solid black;
+grid-area: gameWindow;
 }
-/*
-ticTac_board{
-  background-color: blue;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  min-width: 500px;
-  max-height: 500px;
-}
-*/
 
 #ticTac_board{
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 0px;
+  grid-row-gap: 0px;
   min-width: 500px;
   min-height: 500px;
-
+  max-height: inherit;
+  max-width: inherit;
 }
 
 
 .box-empty{
   border-color: black;
-  border: 2px;
-  min-width: 150px;
-  min-height: 150px;
-  display: inline-block;
-  flex: 1 0 30%;
-  margin: 5px;
+  max-width: 150px;
+  height: 150px;
   vertical-align: top;
   align-items: center;
+  background-color: white;
+  border: 5px solid black;
 }
 .box-empty:hover{
-  background-color: white;
+  border: 5px dashed red;
   transition: 0.5s;
 }
 
 .box-tick{
+  filter:grayscale(100%);
   content: url("https://www.publicdomainpictures.net/pictures/260000/velka/x-marks-the-spot-1527895054EsE.jpg");
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .box-tack{
-  content: url("https://www.publicdomainpictures.net/pictures/50000/velka/letter-o-outlined.jpg");
-  max-width: 100px;
-  max-height: 100px;
-}
-
-
-.box-empty img{
-  max-width: 100px;
-  max-height: 100px;
+  filter:grayscale(100%);
+  content: url("https://cdn3.iconfinder.com/data/icons/letters-and-numbers-1/32/letter_O_blue-512.png");
+  max-width: 150px;
+  max-height: 150px;
 }
 
 .box-image-container{
   content: none;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
-.box-x{
-
-}
-
-.box-o{
-
-}
 
 .error-page{
   max-width: 500px;
