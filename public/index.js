@@ -37,17 +37,18 @@ function updateBoard() {
 		}
 		 else if(gameState.board[i / 2] == 2) {
 			currentBox.classList.add("box-tack");
-		} 
+		}
 		else if(gameState.board[i / 2] == 0) {
 			//if its supposed to be blank, remove
 			if(currentBox.classList[1] == "box-tack") {
 				currentBox.classList.remove("box-tack");
-			} 
+			}
 			else if(currentBox.classList[1] == "box-tick") {
 				currentBox.classList.remove("box-tick");
 			}
 		}
 	}
+  tellUser();
 }
 
 
@@ -132,4 +133,9 @@ webSocket.onmessage = function(event) {
 			console.log("== Player Order Assigned. I am: ", player);
 			break;
 	}
+}
+
+function tellUser(){
+  var idNumber = document.getElementById("player-number");
+  idNumber.innerHTML = gameState.currentPlayer;
 }
