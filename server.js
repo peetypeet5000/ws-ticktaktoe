@@ -68,8 +68,9 @@ webSocketServer.on('connection', socket => {
   updateClients();
 
 
+
   //this is where websocket requests are actually handled
-  socket.on('message', message => { 
+  socket.on('message', message => {
 
     //print message, convert to JSON object
     console.log("== Client Message Recived: ", message)
@@ -149,7 +150,7 @@ function updateGameState() {
 
   //update total number of players
   gameState.totalPlayers = currentPlayers.length;
-  
+
   //REPLACE WITH REAL LOGIC -- currently just clears board if middle filled
   if(gameState.board[4] != 0) {
     console.log("== Resetting Game");
@@ -199,4 +200,3 @@ server.on('upgrade', (request, socket, head) => {
     webSocketServer.emit('connection', socket, request);
   });
 });
-
