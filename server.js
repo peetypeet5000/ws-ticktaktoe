@@ -105,6 +105,19 @@ webSocketServer.on('connection', socket => {
   
 	  //update clients
 	  updatePlayerNumbers();
+
+	  //force reset if no one left
+	  if(currentPlayers.length == 0) {
+		gameState = {
+			type: "gameState",
+			activePiece: 1, //1 or 2 -- determines tick or tack
+			currentPlayer: 1, //starts at 1 -- used for player queue
+			totalPlayers: 0,
+			board: [
+				0, 0, 0, 0, 0, 0, 0, 0, 0
+			]
+		  }
+	  }
 	
 	})
   });
