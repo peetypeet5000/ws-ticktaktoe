@@ -65,7 +65,7 @@ webSocketServer.on('connection', socket => {
 
 
   //this is where websocket requests are actually handled
-  socket.on('message', message => { 
+  socket.on('message', message => {
 
     //print message, convert to JSON object
     console.log("== Client Message Recived: ", message)
@@ -84,6 +84,22 @@ webSocketServer.on('connection', socket => {
   })
 });
 
+
+function checkWin(gameState)
+{
+  var win = false;
+
+}
+
+function checkTie(gameState)
+{
+  for (i = 0; i <= 9; i++) // Cycles through the board array
+  {
+    if (gameState.board[i] == 0) // If we find a blank spot
+    return false; // There's no tie
+  }
+  return true; // We've cycled through the board, there are no empty spaces, game is a tie.
+}
 
 
 //adds all new clients to array of clients, sends client their spot in array
@@ -187,4 +203,3 @@ server.on('upgrade', (request, socket, head) => {
     webSocketServer.emit('connection', socket, request);
   });
 });
-
