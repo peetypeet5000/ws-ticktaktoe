@@ -68,16 +68,23 @@ function sendRequest() {
 
 //toggles the hidden class on the modal div
 function showModal(){
-	var modal = document.getElementById("Modal");
-
+  var modal = document.getElementById("ModalBackdrop");
 	if(modal.classList[0] == "hidden") {
 		modal.classList.remove("hidden");
 	} else {
-		modal.classList.add("hidden");
+		console.log("What the H?");
 	}
 }
 
+//adds the hidden class to modal div
+function hideModal(){
+  console.log("CLOSE SESAME");
+  var modal = document.getElementById("ModalBackdrop");
+	modal.classList.add("hidden");
+  console.log("CLOSED SESAME");
+}
 
+document.getElementById("closer").addEventListener("click", hideModal);
 
 
 //JSON object to hold active gamestate
@@ -137,14 +144,17 @@ webSocket.onmessage = function(event) {
 		case "gameOver":
 			if(newMessage.state == 1) {
 				console.log("== A win was recorded");
+        showModal();
 			} else {
 				console.log("== A tie was recorded");
+        showModal();
 			}
 			break;
 	}
 
 }
 
+//Changes the text on the sidebar with player turn
 function tellUser(){
   if (Math.abs(player - gameState.currentPlayer) == 0){
     var textBox = document.getElementById("navigation-label");
