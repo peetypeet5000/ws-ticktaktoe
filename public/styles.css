@@ -207,6 +207,10 @@ grid-area: gameWindow;
   box-shadow: 2px 2px 1px grey;
 }
 
+#Modal #closer:hover{
+  cursor: pointer;
+}
+
 #ModalBackdrop{
   display: grid;
   position: fixed;
