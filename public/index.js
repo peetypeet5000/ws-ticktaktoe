@@ -134,6 +134,13 @@ webSocket.onmessage = function(event) {
 			console.log("== Player Order Assigned. I am: ", player);
 			tellUser();
 			break;
+		case "gameOver":
+			if(newMessage.state == 1) {
+				console.log("== A win was recorded");
+			} else {
+				console.log("== A tie was recorded");
+			}
+			break;
 	}
 
 }
