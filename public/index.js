@@ -85,6 +85,7 @@ var gameState = {
 	type: "gameState",
 	activePiece: 1,
 	currentPlayer: 0,
+	totalPlayers: 0,
 	board: [
 		0, 0, 0, 0, 0, 0, 0, 0, 0
 	]
@@ -117,25 +118,27 @@ webSocket.onerror = function(event) {
 webSocket.onmessage = function(event) {
 
 	//parse string into object, print to console
-	var message = JSON.parse(event.data);
-	console.log("== New Server Message Received: ", message);
+	var newMessage = JSON.parse(event.data);
+	console.log("== New Server Message Received: ", newMessage);
 
 	//depending on type of message, handle differently
-	switch(message.type) {
+	switch(newMessage.type) {
 		case "gameState":
 			//received new gamestate
-			gameState = message;
+			gameState = newMessage;
 			updateBoard();
 			break;
 		case "assignPlayer":
 			//server assinging this client place in queue
-			player = message.playerInt;
+			player = newMessage.playerInt;
 			console.log("== Player Order Assigned. I am: ", player);
+			tellUser();
 			break;
 	}
+
 }
 
 function tellUser(){
   var idNumber = document.getElementById("player-number");
-  idNumber.innerHTML = gameState.currentPlayer;
+  idNumber.innerHTML = Math.abs(player - gameState.currentPlayer);
 }
