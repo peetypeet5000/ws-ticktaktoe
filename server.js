@@ -167,12 +167,36 @@ function updateGameState() {
 	//if win or tie, reset board
 	if(checkWin() == true || checkTie() == true) {
 		console.log("== A Win or a Tie was Recorded! Resetting...");
+		if(checkWin() == true) {
+			sendWinTie(1);
+		} else {
+			sendWinTie(2);
+		}
 		gameState.board = [
 			0, 0, 0, 0, 0, 0, 0, 0, 0,
 		]
 	}
 }
 
+
+
+//sends a gameOver object to clients, 1 for win 2 for tie
+function sendWinTie(winOrLoss) {
+	webSocketServer.clients.forEach(function each(client) {
+	  //only open clients
+	  if (client.readyState === ws.OPEN) {
+  
+		  //the JSON object to send to new client
+		  var gameOver = {
+			type: "gameOver",
+			state: winOrLoss,
+		  };
+  
+		  //send JSON of gameOver object
+		  client.send(JSON.stringify(gameOver));
+	  }
+	});
+}
 
 
 //loops thru all connected players and assigns them their number in the queue
@@ -196,7 +220,7 @@ function updatePlayerNumbers() {
 		  playerNumber++;
 	  }
 	});
-  }
+}
 
 
 
