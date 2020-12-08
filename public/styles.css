@@ -6,6 +6,7 @@ body{
 }
 
 #sidebar{
+  border: 5px solid black;
   display: inline-block;
   position: static;
   max-width: 200px;
@@ -17,21 +18,26 @@ body{
   height: 500px;
   overflow: hidden;
   grid-area: sidebar;
+  font-family: 'Special Elite', cursive;
 }
 
-#sidebar ul{
-  list-style: none;
-  list-style-type: none;
-  padding: 0px;
+#navigation-container{
+  margin-bottom: 20px;
 }
 
-#sidebar a{
-    text-decoration: none;
-    color: white;
+#sidebar div{
+    font-size: 1.5em;
 }
 
-#sidebar a:hover{
-  color: #ededed;
+#sidebar h2{
+  font-size: 2em;
+}
+
+#sidebar img{
+  width: 150px;
+  height: 150px;
+  margin-left: 25px;
+  margin-top:10px;
 }
 
 header {

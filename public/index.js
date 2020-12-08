@@ -139,5 +139,5 @@ webSocket.onmessage = function(event) {
 
 function tellUser(){
   var idNumber = document.getElementById("player-number");
-  idNumber.innerHTML = gameState.currentPlayer;
+  idNumber.innerHTML = Math.abs(player - gameState.currentPlayer);
 }
