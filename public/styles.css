@@ -19,7 +19,6 @@ body{
   overflow: hidden;
   grid-area: sidebar;
   font-family: 'Special Elite', cursive;
-  box-shadow: 10px 5px 10px black
 }
 
 #navigation-container{
@@ -97,7 +96,7 @@ header img:hover{
 }
 
 .hidden{
-  display: none;
+  visibility: hidden;
 }
 
 .content{
@@ -186,7 +185,42 @@ grid-area: gameWindow;
   color:black;
 }
 
-#ModalMessage{
+#Modal{
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px white;
+}
+
+#Modal #closer{
+  position: absolute;
+  display: grid;
+  right: 10px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 1px grey;
+}
+
+#ModalBackdrop{
+  display: grid;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  z-index: 1001;
+  overflow: scroll;
+  background-color: black;
+  opacity: 0.7;
+  place-items: center;
 }
 
 /*
