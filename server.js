@@ -58,14 +58,14 @@ app.get('*', function (req, res) {
 //handle websocket request
 webSocketServer.on('connection', socket => {
 
+  //update list of players, assign new player their #
+  currentPlayers.push(socket); //add to array
+  console.log("== New Player Joined. Current Players: ", currentPlayers.length);
+
   //when a new user connects, send them gamestate
   //socket.send(JSON.stringify(gameState));
   updatePlayerNumbers();
   updateClients();
-
-  //update list of players, assign new player their #
-  currentPlayers.push(socket); //add to array
-  updatePlayerList(socket);
 
 
   //this is where websocket requests are actually handled
@@ -88,7 +88,22 @@ webSocketServer.on('connection', socket => {
   })
 
   socket.on('close', message => { 
-  updatePlayerNumbers();
+    //updates array of players
+
+    console.log("= Player Disconnecting: ", currentPlayers.length);
+    //filters our dead socket
+    var newCurrentPlayers = currentPlayers.filter(function (ele) {
+      if(ele.readyState == 1) {
+        return ele;
+      }
+    })
+
+    currentPlayers = newCurrentPlayers;
+
+    console.log("= Player Disconnected. There is now ", currentPlayers.length, " players.");
+
+    //update clients
+    updatePlayerNumbers();
   
   })
 });
@@ -118,12 +133,12 @@ function updateGameState() {
 
   //advance gamestate to next player in queue
   gameState.currentPlayer++;
-  if(gameState.currentPlayer > currentPlayers.length) {
+  if(gameState.currentPlayer >= (currentPlayers.length + 1)) {
     gameState.currentPlayer = 1;
   }
 
   //check if this player is still connected
-  checkValidPlayer();
+  //checkValidPlayer();
 
   //advance to next piece (tick or tack)
 	if(gameState.activePiece == 2) {
@@ -148,46 +163,19 @@ function updateGameState() {
 
 
 
-//makes sure current player has not disconnected
-function checkValidPlayer() {
-
-  //checks if the websocket for the current player is still OPEN
-  console.log("==cur", currentPlayers.length);
-  if(currentPlayers.length > 0) {
-    if(currentPlayers[gameState.currentPlayer - 1].readyState !== ws.OPEN) {
-      //if not, advance to next player
-      gameState.currentPlayer++;
-
-      //check if next player out of range of array
-      if(gameState.currentPlayer > currentPlayers.length) {
-        gameState.currentPlayer = 1;
-      }
-
-      //print to console, then run check again
-      console.log("== Current Player Disconnected. Advancing to next player: ", gameState.currentPlayer);
-      checkValidPlayer();
-    }
-  }
-
-  //if not true, do nothing
-}
-
-
 
 function updatePlayerNumbers() {
-  console.log("== New Player Joined. Current Players: ", currentPlayers.length);
-  var playerNumber = 0;
-
+  var playerNumber = 1;
 
   webSocketServer.clients.forEach(function each(client) {
     //only open clients
     if (client.readyState === ws.OPEN) {
 
         //the JSON object to send to new client
-        var newPlayer = JSON.stringify({
+        var newPlayer = {
           type: "assignPlayer",
           playerInt: playerNumber,
-        });
+        };
 
 
         //send JSON of gameState object
