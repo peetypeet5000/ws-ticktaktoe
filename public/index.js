@@ -132,6 +132,7 @@ webSocket.onmessage = function(event) {
 			//server assinging this client place in queue
 			player = newMessage.playerInt;
 			console.log("== Player Order Assigned. I am: ", player);
+			tellUser();
 			break;
 	}
 
