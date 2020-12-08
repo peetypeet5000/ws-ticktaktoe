@@ -92,9 +92,9 @@ function checkWin(gameState)
 // Do I know how to do it?  Yup!
 // Do I have the mental energy to implement the more elegant solution at this point in the term?
 // Nope.
-if ((gamestate.board[0] == gamestate.board [1]) && (gameState.board[1] == gamestate.board[2])) //check row 1 MUDA
+if ((gameState.board[0] == gameState.board [1]) && (gameState.board[1] == gameState.board[2])) //check row 1 MUDA
   return true; // ORA
-else if ((gameState.board[3] == gamestate.board[4]) && (gameState.board[4] == gameState.board[5])) // check row 2 MUDA
+else if ((gameState.board[3] == gameState.board[4]) && (gameState.board[4] == gameState.board[5])) // check row 2 MUDA
   return true; // ORA
 else if ((gameState.board[6] == gameState.board[7]) && (gameState.board[7] == gameState.board[8])) // check row 3 MUDA
   return true; // ORA
