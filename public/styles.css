@@ -19,6 +19,7 @@ body{
   overflow: hidden;
   grid-area: sidebar;
   font-family: 'Special Elite', cursive;
+  box-shadow: 10px 5px 10px black
 }
 
 #navigation-container{
