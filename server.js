@@ -87,8 +87,30 @@ webSocketServer.on('connection', socket => {
 
 function checkWin(gameState)
 {
-  var win = false;
 
+// Is there a more elegant way to do this?  Definitely
+// Do I know how to do it?  Yup!
+// Do I have the mental energy to implement the more elegant solution at this point in the term?
+// Nope.
+if ((gamestate.board[0] == gamestate.board [1]) && (gameState.board[1] == gamestate.board[2])) //check row 1 MUDA
+  return true;
+else if ((gameState.board[3] == gamestate.board[4]) && (gameState.board[4] == gameState.board[5])) // check row 2 MUDA
+  return true;
+else if ((gameState.board[6] == gameState.board[7]) && (gameState.board[7] == gameState.board[8])) // check row 3 MUDA
+  return true;
+else if ((gameState.board[0] == gameState.board[3]) && (gameState.board[3] == gameState.board[6])) // check column 1 MUDA
+  return true;
+else if ((gameState.board[1] == gameState.board[4]) && (gameState.board[4] == gameState.board[7])) // Check column 2 MUDA
+  return true;
+else if ((gameState.board[2] == gameState.board[5]) && (gameState.board[5] == gameState.board[8])) // Check column 3 MUDA
+  return true;
+else if ((gameState.board[0] == gameState.board[4]) && (gameState.board[4] == gameState.board[8])) // Check diagonal 1 MUDA
+  return true;
+else if ((gameState.board[2] == gameState.board[4]) && (gameState.board[4] == gameState.board[6])) // Check diagonal 2 MUDA
+  return true;
+else {
+  return false; // WRRRRRRRRRRRRRRRRRRRRRRRRRRRRY
+}
 }
 
 function checkTie(gameState)
