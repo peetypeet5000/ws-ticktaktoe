@@ -10,7 +10,7 @@ body{
   display: inline-block;
   position: static;
   max-width: 200px;
-  min-width: 150px;
+  min-width: 200px;
   margin: 10px 10px auto 10px;
   padding: 20px;
   border-radius: 10px;
@@ -26,6 +26,7 @@ body{
 }
 
 #sidebar div{
+  min-width: 150px;
     font-size: 1.5em;
 }
 
@@ -38,6 +39,7 @@ body{
   height: 150px;
   margin-left: 25px;
   margin-top:10px;
+  padding: 5px;
 }
 
 header {
