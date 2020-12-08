@@ -139,6 +139,14 @@ webSocket.onmessage = function(event) {
 }
 
 function tellUser(){
-  var idNumber = document.getElementById("player-number");
-  idNumber.innerHTML = Math.abs(player - gameState.currentPlayer);
+  if (Math.abs(player - gameState.currentPlayer) == 0){
+    var textBox = document.getElementById("navigation-label");
+    textBox.innerHTML = "You're up!";
+  }
+  else{
+    var textBox = document.getElementById("navigation-label");
+    textBox.innerHTML = "<label for='nav-title-text' id='navigation-label'>You are currently <span id='player-number'></span> in line.</label>";
+    var idNumber = document.getElementById("player-number");
+    idNumber.innerHTML = Math.abs(player - gameState.currentPlayer);
+  }
 }

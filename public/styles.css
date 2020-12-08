@@ -19,6 +19,7 @@ body{
   overflow: hidden;
   grid-area: sidebar;
   font-family: 'Special Elite', cursive;
+  box-shadow: 10px 5px 10px black
 }
 
 #navigation-container{
@@ -66,6 +67,9 @@ header img{
   max-height: 125px;
   filter:grayscale(100%);
   border-radius: 3px;
+}
+header img:hover{
+  content: url("https://pm1.narvii.com/6618/aef0160b8b35dbdafd68b2d59e20b919923826c7_128.jpg");
 }
 
 .site-title {
