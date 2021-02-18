@@ -5,7 +5,7 @@ var ws = require('ws');
 
 //setup express
 var app = express();
-var port = 3000;
+var port = 3001;
 
 //setup websocket server
 const webSocketServer = new ws.Server({ noServer: true });
