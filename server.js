@@ -29,6 +29,12 @@ var currentPlayers = [];
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+//testing
+app.use(function (req, res, next) {
+	console.log('Time:', Date.now(), " URL: ", req.path);
+	next();
+  })
+
 //stores received json in req.body
 app.use(express.json());
 
