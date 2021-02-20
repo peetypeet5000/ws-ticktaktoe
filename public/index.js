@@ -107,7 +107,7 @@ buttonsContainer.addEventListener('click', buttonClicked, false);
 
 
 /******* Websocket Stuff *********/
-var webSocket = new WebSocket('ws://localhost:3001');
+var webSocket = new WebSocket('wss://raspi.peterlamontagne.com/tiktak');
 
 //on webSocket Open
 webSocket.onopen = function(event) {
